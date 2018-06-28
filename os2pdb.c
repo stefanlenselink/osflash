@@ -149,14 +149,10 @@ main(int argc, char **argv) {
         /* block no 0 contains some values indicating whether this */
         /* really is palmos image */
         if ((i==0)||(i==1)) {
-            if ( (os_buffer[0x10]!='P')||
-                 (os_buffer[0x11]!='a')||
-                 (os_buffer[0x12]!='l')||
-                 (os_buffer[0x13]!='m')||
-                 (os_buffer[0x14]!='C')||
-                 (os_buffer[0x15]!='a')||
-                 (os_buffer[0x16]!='r')||
-                 (os_buffer[0x17]!='d')) {
+            if ( (os_buffer[0x08]!= 0xFE)||
+                 (os_buffer[0x09]!= 0xED)||
+                 (os_buffer[0x0A]!= 0xBE)||
+                 (os_buffer[0x0B]!= 0xEF)) {
 
                 printf("Error, the input file does not contain a valid PalmOS image.\n");
 
